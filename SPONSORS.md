@@ -14,15 +14,15 @@ Graphile ecosystem. Find out
 
 - Joe Dennis
 - domonda
+- Robert Claypool
+- Surge.io
 - James Allain
 - Jack Dinker
-- Robert Claypool
-- Qwick
 - Nigel Taylor
 - DocIQ
 - Principia Mentis
+- Qwick
 - Partners in School Innovation
-- OpenLaw NZ
 - Sterblue
 - HR-ON
 - Ian Stewart
@@ -35,15 +35,25 @@ Graphile ecosystem. Find out
 - Sam Levin
 - stlbucket
 - Matt Bretl
+- purge
 - Chris Watland
+- James Rascoe
+- Mark Lipscombe
+- Michel Pelletier
 - Mark Rapoza
 - innovation.rocks
-- purge
 - Daniel Woelfel
-- Bjørn Michelsen
 - Philipp Litzenberger
+- Andrew Poland
+- Bjørn Michelsen
 - CJ
-- apoland
+- Ben Botwin
 - Cameron Ellis
 - Mansoor Razzaq
-- rcy
+- Ryan Yeske
+- Borut Jures
+- Homero Fonseca
+- Keith Layne
+- Olli Selamaa
+- qoby
+- Paul Melnikow
