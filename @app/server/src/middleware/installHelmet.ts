@@ -19,6 +19,8 @@ const CSP_DIRECTIVES = {
     // an https:// page, so we have to translate explicitly for
     // it.
     ROOT_URL.replace(/^http/, "ws"),
+    // ws://localhost:24678/
+    ROOT_URL.replace(/^http/, "ws").replace(/5678/, "24678"),
   ],
 };
 
