@@ -32,7 +32,7 @@ export default function installHelmet(app: Express) {
                 ...CSP_DIRECTIVES,
                 // Dev needs 'unsafe-eval' due to
                 // https://github.com/vercel/next.js/issues/14221
-                "script-src": ["'self'", "'unsafe-eval'"],
+                "script-src": ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
               },
             },
           }
