@@ -5,7 +5,7 @@
   </p>
   <button @click="state.count++">count is: {{ state.count }}</button>
   <p class="virtual">msg from virtual module: {{ foo.msg }}</p>
-  <pre v-if="sharedResult">{{ sharedResult.currentUser }}</pre>
+  <pre>{{ currentUser }}</pre>
   <pre>{{ x }}</pre>
 </template>
 
@@ -13,13 +13,15 @@
 import foo from '@foo'
 import { reactive, computed } from 'vue'
 import { SharedDocument } from '@app/graphql'
-import { useQuery } from 'villus';
-const { data: sharedResult } = useQuery({
+import { useQuery, useResult, useMutation } from '@vue/apollo-composable'
+const { result } = useQuery({
   query: SharedDocument,
 });
 const x = computed(() => {
-  return sharedResult.value ? sharedResult.value.currentUser : {}
+  return result.value ? sharedResult.value : {}
 });
+
+const currentUser = useResult(result, null, data => data.currentUser)
 // const currentUser = sharedResult.value.currentUser
 const state = reactive({ count: 0 })
 </script>
