@@ -61,8 +61,6 @@
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint_d": "^10.1.2",
     "inquirer": "^8.1.0",

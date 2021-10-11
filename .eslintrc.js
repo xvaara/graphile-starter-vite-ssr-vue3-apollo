@@ -4,7 +4,6 @@ const schemaString = readFileSync(`${__dirname}/data/schema.graphql`, "utf8");
 module.exports = {
   parser: "@typescript-eslint/parser",
   extends: [
-    "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
     "prettier",
@@ -12,8 +11,6 @@ module.exports = {
   plugins: [
     "jest",
     "@typescript-eslint",
-    "react-hooks",
-    "react",
     "graphql",
     "simple-import-sort",
     "import",
@@ -35,9 +32,6 @@ module.exports = {
     },
   },
   settings: {
-    react: {
-      version: "detect",
-    },
   },
   env: {
     browser: true,
@@ -46,8 +40,6 @@ module.exports = {
     es6: true,
   },
   rules: {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -85,10 +77,6 @@ module.exports = {
         props: false,
       },
     ],
-    "react/prop-types": 0,
-    "react/no-multi-comp": 0,
-    "react/jsx-filename-extension": 0,
-    "react/no-unescaped-entities": 0,
 
     "import/no-extraneous-dependencies": 0,
 
@@ -142,7 +130,6 @@ module.exports = {
         requiredFields: ["nodeId", "id"],
       },
     ],
-    "react/destructuring-assignment": 0,
 
     "arrow-body-style": 0,
     "no-nested-ternary": 0,
