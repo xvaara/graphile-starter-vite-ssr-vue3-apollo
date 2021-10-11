@@ -1,10 +1,29 @@
-# Graphile Starter
+# Graphile Starter with Vue 3 + Vite + Vite SSR
 
-## Take it for a spin!
+## fork of the original react starter
+
+using from vue ecosystem:
+
+- [Vue 3](https://v3.vuejs.org/)
+- [Vue Apollo 4](https://v4.apollo.vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Vite SSR](https://github.com/frandiox/vite-ssr)
+
+Vue part is based on [Vitesse](https://github.com/antfu/vitesse) and some copy-paste html from [Tail-kit](https://www.tailwind-kit.com/)
+
+## About me
+
+I'm interested in projects using this stack. So if you need some development work, my [company](https://mentalhouse.fi/) is available! Working from Finland.
+
+---
+
+# Original readme
+
+## Take it for a spin
 
 We're running the starter at:
 
-https://graphile-starter.herokuapp.com
+<https://graphile-starter.herokuapp.com>
 
 Feel free to register an account and have a poke around as you see fit.
 
@@ -28,8 +47,8 @@ you're comfortable with the various tools it uses
 [Graphile Worker](https://github.com/graphile/worker),
 [Graphile Migrate](https://github.com/graphile/migrate),
 [TypeScript](https://www.typescriptlang.org/docs/),
-[React](https://reactjs.org/docs/getting-started.html),
-[Apollo Client for React](https://www.apollographql.com/docs/react/),
+[Vue 3](https://v3.vuejs.org/),
+[Vue Apollo 4](https://v4.apollo.vuejs.org/),
 [GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator),
 [ESLint](https://eslint.org/),
 [Prettier](https://prettier.io/docs/en/index.html), [Jest](https://jestjs.io/),
@@ -103,7 +122,7 @@ And please give some love to our featured sponsors 🤩:
 
 <table><tr>
 <td align="center"><a href="http://chads.website"><img src="https://graphile.org/images/sponsors/chadf.png" width="90" height="90" alt="Chad Furman" /><br />Chad Furman</a> *</td>
-<td align="center"><a href="https://storyscript.com/?utm_source=postgraphile"><img src="https://graphile.org/images/sponsors/storyscript.png" width="90" height="90" alt="Storyscript" /><br />Storyscript</a> *</td>
+<td align="center"><a href="https://storyscript.com/?utm_source=postgraphile"><img src="https://graphile.org/images/sponsors/storyscript.png" width="90" height="90" alt="Storyscript" /><br />Storyscript</a>*</td>
 <td align="center"><a href="https://postlight.com/?utm_source=graphile"><img src="https://graphile.org/images/sponsors/postlight.jpg" width="90" height="90" alt="Postlight" /><br />Postlight</a> *</td>
 <td align="center"><a href="https://surge.io/"><img src="https://graphile.org/images/sponsors/surge.png" width="90" height="90" alt="Surge.io" /><br />Surge.io</a> *</td>
 </tr></table>
@@ -284,7 +303,7 @@ You can bring up the stack with:
 | `yarn start` | or  | `export UID; yarn docker start` |
 
 After a short period you should be able to load the application at
-http://localhost:5678
+<http://localhost:5678>
 
 This main command runs a number of tasks:
 
@@ -393,7 +412,7 @@ Use `yarn run build` to generate a production build of the project
 
 Prerequisites:
 
-- Install the Heroku CLI: https://devcenter.heroku.com/articles/heroku-cli
+- Install the Heroku CLI: <https://devcenter.heroku.com/articles/heroku-cli>
 
 If you are using `graphile-migrate` make sure that you have executed
 `graphile-migrate commit` to commit all your database changes, since we only run
