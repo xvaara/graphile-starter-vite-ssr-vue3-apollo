@@ -13,6 +13,7 @@ const isDevOrTest =
 
 const CSP_DIRECTIVES = {
   ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+  "script-src": ["'self'", "'unsafe-inline'"],
   "connect-src": [
     "'self'",
     // Safari doesn't allow using wss:// origins as 'self' from
@@ -34,7 +35,7 @@ export default function installHelmet(app: Express) {
                 ...CSP_DIRECTIVES,
                 // Dev needs 'unsafe-eval' due to
                 // https://github.com/vercel/next.js/issues/14221
-                "script-src": ["'self'", "'unsafe-eval'"],
+                "script-src": ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
               },
             },
           }

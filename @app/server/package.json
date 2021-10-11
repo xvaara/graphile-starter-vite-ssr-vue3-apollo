@@ -47,7 +47,8 @@
     "postgraphile": "^4.11.0",
     "redis": "^3.0.2",
     "source-map-support": "^0.5.13",
-    "tslib": "^2.0.1"
+    "tslib": "^2.0.1",
+    "vite-ssr": "^0.13.2"
   },
   "devDependencies": {
     "@types/node": "^14.10.1",
