@@ -2,7 +2,7 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.enable": false,
   "eslint.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.lintTask.options": "--ext .js,.jsx,.ts,.tsx,.graphql .",
@@ -14,13 +14,11 @@
     "graphql"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll.eslint": true
   },
 
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-
-  "prettier.disableLanguages": [],
 
   "files.associations": {
     ".gmrc": "jsonc"

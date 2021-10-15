@@ -14,6 +14,11 @@ import viteSSR from 'vite-ssr/plugin.js'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
+export const ssrTransformCustomDir = () => ({
+  props: [],
+  needRuntime: true,
+})
+
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -34,9 +39,7 @@ export default defineConfig({
       '@vueuse/core',
       '@vue/apollo-composable',
     ],
-    exclude: [
-      'vue-demi',
-    ],
+    exclude: ['vue-demi'],
   },
   define: {
     __ROOT_URL__: JSON.stringify(process.env.ROOT_URL),
@@ -45,6 +48,18 @@ export default defineConfig({
     viteSSR(),
     Vue({
       include: [/\.vue$/, /\.md$/],
+      template: {
+        ssr: true,
+        compilerOptions: {
+          directiveTransforms: {
+            'b-modal': ssrTransformCustomDir,
+            'b-popover': ssrTransformCustomDir,
+            'b-toggle': ssrTransformCustomDir,
+            'b-tooltip': ssrTransformCustomDir,
+            'b-visible': ssrTransformCustomDir,
+          },
+        },
+      },
     }),
 
     // https://github.com/hannoeru/vite-plugin-pages
@@ -58,15 +73,10 @@ export default defineConfig({
         '@vueuse/head',
         '@vueuse/core',
         {
-          '@vue/apollo-composable': [
-            'useQuery',
-            'useMutation',
-          ],
+          '@vue/apollo-composable': ['useQuery', 'useMutation'],
         },
         {
-          '~/utils/apollo': [
-            'useResult',
-          ],
+          '~/utils/apollo': ['useResult'],
         },
       ],
       dts: path.resolve(__dirname, 'src', 'auto-imports.d.ts'),
@@ -111,6 +121,5 @@ export default defineConfig({
     WindiCSS({
       safelist: markdownWrapperClasses,
     }),
-
   ],
 })

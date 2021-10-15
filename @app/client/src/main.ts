@@ -18,9 +18,11 @@ import { createHead } from '@vueuse/head'
 import generatedRoutes from 'virtual:generated-pages'
 import viteSSR, { ClientOnly } from 'vite-ssr'
 
+import { useSharedQuery } from '@app/graphql'
 import App from './App.vue'
-// import fetch from 'cross-fetch';
+
 import { createApolloClient } from './withApollo'
+import { useResult } from './utils/apollo'
 
 // @ts-ignore
 // eslint-disable-next-line no-undef
@@ -34,8 +36,7 @@ export default viteSSR(
   {
     routes: generatedRoutes,
     transformState(state, defaultTransformer) {
-      if (import.meta.env.SSR)
-        state.apolloCache = state.apolloCache.extract()
+      if (import.meta.env.SSR) state.apolloCache = state.apolloCache.extract()
 
       return defaultTransformer(state)
     },
@@ -71,9 +72,16 @@ export default viteSSR(
       )
     }
     // @ts-ignore
-    const ApolloLink = import.meta.env.SSR ? response.locals.GraphileApolloLink : null
+    const ApolloLink = import.meta.env.SSR
+      ? response.locals.GraphileApolloLink
+      : null
 
-    const defaultClient = createApolloClient(import.meta.env.SSR, initialState.apolloCache, ApolloLink, initialState.csrfToken)
+    const defaultClient = createApolloClient(
+      import.meta.env.SSR,
+      initialState.apolloCache,
+      ApolloLink,
+      initialState.csrfToken,
+    )
 
     provideApolloClient(defaultClient)
 
@@ -93,6 +101,13 @@ export default viteSSR(
       // Use Vite's `import.meta.env.SSR` instead for tree-shaking.
 
       // const baseUrl = isClient ? '' : url.origin
+      // const currentUser = app.inject("currentUser");
+
+      const { result } = await useSharedQuery({
+        fetchPolicy: 'cache-first',
+      })
+      const currentUser = await useResult(result)
+      console.log('route', currentUser.value)
 
       // Explanation:
       // The first rendering happens in the server. Therefore, when this code runs,

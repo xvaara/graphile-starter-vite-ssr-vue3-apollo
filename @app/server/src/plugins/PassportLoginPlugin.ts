@@ -2,6 +2,9 @@ import { gql, makeExtendSchemaPlugin } from "graphile-utils";
 
 import { OurGraphQLContext } from "../middleware/installPostGraphile";
 import { ERROR_MESSAGE_OVERRIDES } from "../utils/handleErrors";
+interface ErrorWithCode extends Error {
+  code: string;
+}
 
 const PassportLoginPlugin = makeExtendSchemaPlugin((build) => ({
   typeDefs: gql`
@@ -147,7 +150,7 @@ const PassportLoginPlugin = makeExtendSchemaPlugin((build) => ({
             data: row,
           };
         } catch (e) {
-          const { code } = e;
+          const code = (e as ErrorWithCode).code;
           const safeErrorCodes = [
             "WEAKP",
             "LOCKD",
@@ -211,14 +214,14 @@ const PassportLoginPlugin = makeExtendSchemaPlugin((build) => ({
             data: row,
           };
         } catch (e) {
-          const { code } = e;
+          const code = (e as ErrorWithCode).code;
           const safeErrorCodes = ["LOCKD", "CREDS"];
           if (safeErrorCodes.includes(code)) {
             throw e;
           } else {
             console.error(e);
             const error = new Error("Login failed");
-            error["code"] = e.code;
+            error["code"] = code;
             throw error;
           }
         }

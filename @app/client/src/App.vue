@@ -74,17 +74,20 @@ import { provide } from 'vue'
 import { useSharedQuery, CurrentUserUpdatedDocument } from '@app/graphql'
 export default {
   setup() {
-    const { result, subscribeToMore } = useSharedQuery({ fetchPolicy: 'cache-first' })
+    const { result, subscribeToMore } = useSharedQuery({
+      fetchPolicy: 'cache-first',
+    })
     const currentUser = useResult(result)
-    console.log(result.value)
-    subscribeToMore({ document: CurrentUserUpdatedDocument })
+    console.log(currentUser.value)
+    if (currentUser.value)
+      subscribeToMore({ document: CurrentUserUpdatedDocument })
+
     provide('currentUser', currentUser)
     const isDark = useDark()
     const toggleDark = useToggle(isDark)
     return { currentUser, isDark, toggleDark }
   },
 }
-
 </script>
 <style>
 #app {
