@@ -61,7 +61,7 @@ export function createApolloClient(ssr = false, cache, apolloLink, csrfToken) {
       ssr
         ? {
           // Set this on the server to optimize queries when SSR
-          ssrMode: true,
+          // ssrMode: true,
         }
         : {
           // This will temporary disable query force-fetching
